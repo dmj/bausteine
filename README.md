@@ -30,8 +30,7 @@ Anwendungen
 
 ### app/diglib-rightsmd.rnc
 
-RelaxNG der administrativen Metadaten für [https://github.com/dmj/mets-anwendungsprofil](Produkte
-der Massendigitalisierung).
+RelaxNG der administrativen Metadaten für [https://github.com/dmj/mets-anwendungsprofil](Produkte der Massendigitalisierung).
 
 Literatur
 --
