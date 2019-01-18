@@ -1,0 +1,50 @@
+# Wiederverwendbare Eigenschaften (allgemein)
+#
+# Autor: David Maus <maus@hab.de>
+# Timestamp: <2019-01-18 15:35:35 maus>
+#
+
+namespace foaf = "http://xmlns.com/foaf/0.1/"
+namespace rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+namespace owl = "http://www.w3.org/2002/07/owl#"
+namespace skos = "http://www.w3.org/2004/02/skos/core#"
+
+entity.Concept =
+   element skos:Concept {
+      model.Entity
+   }
+
+entity.Resource =
+   element * {
+      model.Entity
+   }
+
+property.label =
+   element skos:prefLabel {
+      attribute xml:lang { xsd:language }?
+    & text
+   }
+
+property.homepage =
+   element foaf:homepage {
+      attribute rdf:resource { xsd:anyURI }
+    & empty
+   }
+
+model.Entity = ( model.internalEntity | model.externalEntity )
+
+model.internalEntity =
+   attribute rdf:about { xsd:anyURI }?
+ & property.label
+ & property.homepage
+
+model.externalEntity =
+   element owl:sameAs {
+      attribute rdf:resource { xsd:anyURI }
+   }*
+ & property.label
+ & property.homepage
+
+model.rdfLiteral =
+   attribute rdf:datatype { xsd:anyURI }?
+ & text

@@ -1,0 +1,345 @@
+# Wiederverwendbare Eigenschaften (Dublin Core Qualified)
+#
+# Autor: David Maus <maus@hab.de>
+# Timestamp: <2019-01-18 15:36:41 maus>
+#
+
+namespace dct = "http://purl.org/dc/terms/"
+
+include "shared.rnc"
+
+property.alternative =
+   element dct:alternative {
+      model.rdfLiteral
+   }
+
+property.abstract =
+   element dct:abstract {
+      model.rdfLiteral
+   }
+
+property.accessRights =
+   element dct:accessRights {
+      entity.RightsStatement
+   }
+
+property.accrualMethod =
+   element dct:accrualMethod  {
+      element dct:MethodOfAccrual {
+         model.Entity
+      }
+   }
+
+property.accrualPeriodicity =
+   element dct:accrualPeriodicity {
+      element dct:Frequency {
+         model.Entity
+      }
+   }
+
+property.accrualPolicy  =
+   element dct:accrualPolicy {
+      element dct:Policy {
+         model.Entity
+      }
+   }
+
+property.audience =
+   element dct:audience {
+      entity.AgentClass
+   }
+
+property.available =
+   element dct:available {
+      model.rdfLiteral
+   }
+
+property.bibliographicCitation =
+   element dct:bibliographicCitation {
+      element dct:BibliographicResource {
+         model.Entity
+      }
+   }
+
+property.conformsTo =
+   element dct:conformsTo {
+      element dct:Standard {
+         model.Entity
+      }
+   }
+
+property.contributor =
+   element dct:contributor {
+      entity.Agent
+   }
+
+property.coverage =
+   element dct:coverage {
+      entity.LocationPeriodOrJurisdiction
+   }
+
+property.created =
+   element dct:created {
+      model.rdfLiteral
+   }
+
+property.creator =
+   element dct:creator {
+      entity.Agent
+   }
+
+property.date =
+   element dct:date {
+      model.rdfLiteral
+   }
+
+property.dateAccepted =
+   element dct:dateAccepted {
+      model.rdfLiteral
+   }
+
+property.dateCopyrighted =
+   element dct:dateCopyrighted {
+      model.rdfLiteral
+   }
+
+property.dateSubmitted =
+   element dct:dateSubmitted {
+      model.rdfLiteral
+   }
+
+property.description =
+   element dct:description {
+      model.rdfLiteral
+   }
+
+property.educationLevel =
+   element dct:educationLevel {
+      entity.AgentClass
+   }
+
+property.extent =
+   element dct:extent {
+      entity.SizeOrDuration
+   }
+
+property.format =
+   element dct:format {
+      entity.MediaTypeOrExtent
+   }
+
+property.hasFormat =
+   element dct:hasFormat {
+      entity.Resource
+   }
+
+property.hasPart =
+   element dct:hasPart {
+      entity.Resource
+   }
+
+property.hasVersion =
+   element dct:hasVersion {
+      entity.Resource
+   }
+
+property.identifier =
+   element dct:identifier {
+      model.rdfLiteral
+   }
+
+property.instructionalMethod =
+   element dct:instructionalMethod {
+      element dct:MethodOfInstruction {
+         model.Entity
+      }
+   }
+
+property.isFormatOf =
+   element dct:isFormatOf {
+      entity.Resource
+   }
+
+property.isPartOf =
+   element dct:isPartOf {
+      entity.Resource
+   }
+
+property.isReferencedBy =
+   element dct:isReferencedBy {
+      entity.Resource
+   }
+
+property.isReplacedBy =
+   element dct:isReplacedBy {
+      entity.Resource
+   }
+
+property.isRequiredBy =
+   element dct:isRequiredBy {
+      entity.Resource
+   }
+
+property.issued =
+   element dct:issued {
+      model.rdfLiteral
+   }
+
+property.isVersionOf =
+   element dct:isVersionOf {
+      entity.Resource
+   }
+
+property.language =
+   element dct:language {
+      element dct:LinguisticSystem {
+         model.Entity
+       & property.identifier
+      }
+   }
+
+property.license =
+   element dct:license {
+      element dct:LicenseDocument {
+         model.Entity
+      }
+   }
+
+property.medium =
+   element dct:medium {
+      element dct:PhysicalMedium {
+         model.Entity
+      }
+   }
+
+property.modified =
+   element dct:modified {
+      model.rdfLiteral
+   }
+
+property.provenance =
+   element dct:provenance {
+      element dct:ProvenanceStatement {
+         model.Entity
+      }
+   }
+
+property.publisher =
+   element dct:publisher {
+      entity.Agent
+   }
+
+property.references =
+   element dct:references {
+      entity.Resource
+   }
+
+property.relation =
+   element dct:relation {
+      entity.Resource
+   }
+
+property.replaces =
+   element dct:replaces {
+      entity.Resource
+   }
+
+property.requires =
+   element dct:requires {
+      entity.Resource
+   }
+
+property.rights =
+   element dct:rights {
+      entity.RightsStatement
+   }
+
+property.rightsHolder =
+   element dct:rightsHolder {
+      entity.Agent
+   }
+
+property.source =
+   element dct:source {
+      entity.Resource
+   }
+
+property.spatial =
+   element dct:spatial {
+      element dct:Location {
+         model.Entity
+      }
+   }
+
+property.subject =
+   element dct:subject {
+      entity.Concept
+   }
+
+property.tableOfContents =
+   element dct:tableOfContents {
+      model.rdfLiteral
+   }
+
+property.temporal =
+   element dct:temporal {
+      entity.PeriodOfTime
+   }
+
+property.title =
+   element dct:title {
+      model.rdfLiteral
+   }
+
+property.type =
+   element dct:type {
+      entity.Concept
+   }
+
+property.valid =
+   element dct:valid {
+      model.rdfLiteral
+   }
+
+entity.Agent =
+   element dct:Agent {
+      model.Entity
+   }
+
+entity.AgentClass =
+   element dct:AgentClass {
+      model.Entity
+   }
+
+entity.LocationPeriodOrJurisdiction =
+   ( entity.Location | entity.PeriodOfTime | entity.Jurisdiction )
+
+entity.Location =
+   element dct:Location {
+      model.Entity
+   }
+
+entity.MediaTypeOrExtent =
+   element dct:MediaTypeOrExtent {
+      model.Entity
+   }
+
+entity.SizeOrDuration =
+   element dct:SizeOrDuration {
+      model.Entity
+   }
+
+entity.PeriodOfTime =
+   element dct:PeriodTime {
+      model.Entity
+   }
+
+entity.Jurisdiction =
+   element dct:Jurisdiction {
+      model.Entity
+   }
+
+entity.RightsStatement =
+   element dct:RightsStatement {
+      model.Entity
+   }
