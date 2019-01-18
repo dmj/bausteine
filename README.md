@@ -17,13 +17,21 @@ Bezeichner führen.
 Bausteine
 --
 
-### shared.rnc
+### lib/shared.rnc
 
 RelaxNG für allgemeine Entitäten und Eigenschaften des kanonischen RDF/XML.
 
-### shared-dc.rnc
+### lib/shared-dc.rnc
 
 RelaxNG für Entitäten und Eigenschaften aus Dublin Core Qualified.
+
+Anwendungen
+--
+
+### app/diglib-rightsmd.rnc
+
+RelaxNG der administrativen Metadaten für [https://github.com/dmj/mets-anwendungsprofil](Produkte
+der Massendigitalisierung).
 
 Literatur
 --
