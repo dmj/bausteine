@@ -32,6 +32,10 @@ Anwendungen
 
 RelaxNG der administrativen Metadaten für [Produkte der Massendigitalisierung](https://github.com/dmj/mets-anwendungsprofil).
 
+### app/diglib-dmd.rnc
+
+RelaxNG der deskriptiven Metadaten für Handschriften aus dem Projekt #PolonskyGerman.
+
 Literatur
 --
 

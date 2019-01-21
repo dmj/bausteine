@@ -1,0 +1,26 @@
+# Deskriptive Metadaten / #PolonskyGerman
+#
+# Autor: David Maus <maus@hab.de>
+# Timestamp: <2019-01-21 13:48:29 maus>
+#
+
+namespace rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+
+include "../lib/shared-dc.rnc"
+
+start =
+   element rdf:Description {
+      requiredMetadata
+    & optionalMetadata
+   }
+
+requiredMetadata = empty
+
+optionalMetadata =
+   property.title?
+ & property.creator*
+ & property.contributor*
+ & property.language*
+ & property.spatial*
+ & property.date*
+ & property.description*
