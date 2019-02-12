@@ -8,7 +8,7 @@ Die kanonische Serialisierung produziert ausschließlich gestreiftes (striped) R
 
 URI-Referenzen werden immer als URIs, nie als relative URI-Referenzen ausgedrückt.
 
-Aussagen werden nur über Entitäten getroffen, der URI aus der eigenen Wissensbasis stammen.  Die
+Aussagen werden nur über Entitäten getroffen, deren URI aus der eigenen Wissensbasis stammen.  Die
 Identität mit Entitäten anderer Wissensbasen wird durch die Eigenschaft owl:sameAs ausgedrückt.
 
 Jede Entität muss mindestens eine Eigenschaften skos:prefLabel mit einem natürlichsprachigen
