@@ -36,7 +36,9 @@
     <xsl:for-each select="current-group()">
       <xsl:choose>
         <xsl:when test="empty(*) and @rdf:resource">
-          <json:string>{@rdf:resource}</json:string>
+          <json:map>
+            <json:string key="@id">{@rdf:resource}</json:string>
+          </json:map>
         </xsl:when>
         <xsl:when test="empty(*) and @xml:lang">
           <json:map>
@@ -51,7 +53,9 @@
           </json:map>
         </xsl:when>
         <xsl:when test="empty(*)">
-          <json:string>{normalize-space()}</json:string>
+          <json:map>
+            <json:string key="@value">{normalize-space()}</json:string>
+          </json:map>
         </xsl:when>
         <xsl:otherwise>
           <json:array>
