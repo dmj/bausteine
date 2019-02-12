@@ -38,14 +38,20 @@
         <xsl:when test="empty(*) and @rdf:resource">
           <json:string>{@rdf:resource}</json:string>
         </xsl:when>
-        <xsl:when test="empty(*) and not(@xml:lang)">
-          <json:string>{normalize-space()}</json:string>
-        </xsl:when>
-        <xsl:when test="empty(*)">
+        <xsl:when test="empty(*) and @xml:lang">
           <json:map>
             <json:string key="@value">{normalize-space()}</json:string>
             <json:string key="@language">{@xml:lang}</json:string>
           </json:map>
+        </xsl:when>
+        <xsl:when test="empty(*) and @rdf:datatype">
+          <json:map>
+            <json:string key="@value">{normalize-space()}</json:string>
+            <json:string key="@type">{@rdf:datatype}</json:string>
+          </json:map>
+        </xsl:when>
+        <xsl:when test="empty(*)">
+          <json:string>{normalize-space()}</json:string>
         </xsl:when>
         <xsl:otherwise>
           <json:array>
