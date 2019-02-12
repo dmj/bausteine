@@ -25,6 +25,15 @@ RelaxNG für allgemeine Entitäten und Eigenschaften des kanonischen RDF/XML.
 
 RelaxNG für Entitäten und Eigenschaften aus Dublin Core Qualified.
 
+Hilfsmittel
+--
+
+## util/rdfxml2jsonld.xsl (XSLT 3.0)
+
+Wandelt kanonisch serialisiertes RDF/XML in isomorphes JSON-LD.  Das erzeugte JSON-LD liegt in
+[expandierter Form](https://json-ld.org/spec/latest/json-ld-api/#expansion-algorithm), d.h. ohne
+Kontextinformationen vor.
+
 Anwendungen
 --
 
