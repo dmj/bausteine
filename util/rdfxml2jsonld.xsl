@@ -39,11 +39,11 @@
           <json:string>{@rdf:resource}</json:string>
         </xsl:when>
         <xsl:when test="empty(*) and not(@xml:lang)">
-          <json:string>{.}</json:string>
+          <json:string>{normalize-space()}</json:string>
         </xsl:when>
         <xsl:when test="empty(*)">
           <json:map>
-            <json:string key="@value">{.}</json:string>
+            <json:string key="@value">{normalize-space()}</json:string>
             <json:string key="@language">{@xml:lang}</json:string>
           </json:map>
         </xsl:when>
