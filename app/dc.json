@@ -1,0 +1,100 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "OAI Dublin Core in JSON",
+    "definitions": {
+        "localizedString": {
+            "required": [
+                "@language",
+                "@value"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "@language": {"type": "string"},
+                "@value": {"type": "string"}
+            }            
+        },
+        "content": {
+            "type": [
+                "array",
+                "string",
+                "object"
+            ],
+            "$ref": "#/definitions/localizedString",
+            "items": {
+                "type": [
+                    "string",
+                    "object"
+                ],
+                "$ref": "#/definitions/localizedString"
+            }
+        }
+    },
+    "type": "object",
+    "required": ["@context"],
+    "properties": {
+        "@context": {
+            "description": "JSON-LD context of the metadata record",
+            "const": "http://uri.hab.de/instance/schema/dc.jsonld"
+        },
+        "title": {
+            "description": "A name given to the resource.",
+            "$ref": "#/definitions/content"
+        },
+        "creator": {
+            "description": "An entity primarily responsible for making the resource.",
+            "$ref": "#/definitions/content"
+        },
+        "subject": {
+            "description": "The topic of the resource.",
+            "$ref": "#/definitions/content"
+        },
+        "description": {
+            "description": "An account of the resource.",
+            "$ref": "#/definitions/content"
+        },
+        "publisher": {
+            "description": "An entity responsible for making the resource available.",
+            "$ref": "#/definitions/content"
+        },
+        "contributor": {
+            "description": "An entity responsible for making contributions to the resource.",
+            "$ref": "#/definitions/content"
+        },
+        "date": {
+            "description": "A point or period of time associated with an event in the lifecycle of the resource.",
+            "$ref": "#/definitions/content"
+        },
+        "type": {
+            "description": "The nature or genre of the resource.",
+            "$ref": "#/definitions/content"
+        },
+        "format": {
+            "description": "The file format, physical medium, or dimensions of the resource.",
+            "$ref": "#/definitions/content"
+        },
+        "identifier": {
+            "description": "An unambiguous reference to the resource within a given context.",
+            "$ref": "#/definitions/content"
+        },
+        "source": {
+            "description": "A related resource from which the described resource is derived.",
+            "$ref": "#/definitions/content"
+        },
+        "language": {
+            "description": "A language of the resource.",
+            "$ref": "#/definitions/content"
+        },
+        "relation": {
+            "description": "A related resource.",
+            "$ref": "#/definitions/content"
+        },
+        "coverage": {
+            "description": "The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.",
+            "$ref": "#/definitions/content"
+        },
+        "rights": {
+            "description": "Information about rights held in and over the resource.",
+            "$ref": "#/definitions/content"
+        }
+    }
+}
