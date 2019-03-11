@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "model.localizedString": {
+            "type": "object",
+            "required": [
+                "@language",
+                "@value"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "@language": {"type": "string"},
+                "@value": {"type": "string"}
+            }
+        },
+        "model.literal": {
+            "type": [
+                "array",
+                "string",
+                "object"
+            ],
+            "oneOf": [
+                {"type": "string"},
+                {"$ref": "#/definitions/model.localizedString"},
+                {
+                    "type": "array",
+                    "items": {
+                        "type": [
+                            "string",
+                            "object"
+                        ],
+                        "oneOf": [
+                            {"type": "string"},
+                            {"$ref": "#/definitions/model.localizedString"}
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

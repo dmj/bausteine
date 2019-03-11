@@ -1,44 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "OAI Dublin Core in JSON",
-    "definitions": {
-        "localizedString": {
-            "type": "object",
-            "required": [
-                "@language",
-                "@value"
-            ],
-            "additionalProperties": false,
-            "properties": {
-                "@language": {"type": "string"},
-                "@value": {"type": "string"}
-            }
-        },
-        "content": {
-            "type": [
-                "array",
-                "string",
-                "object"
-            ],
-            "oneOf": [
-                {"type": "string"},
-                {"$ref": "#/definitions/localizedString"},
-                {
-                    "type": "array",
-                    "items": {
-                        "type": [
-                            "string",
-                            "object"
-                        ],
-                        "oneOf": [
-                            {"type": "string"},
-                            {"$ref": "#/definitions/localizedString"}
-                        ]
-                    }
-                }
-            ]
-        }
-    },
     "type": "object",
     "required": ["@context"],
     "properties": {
@@ -48,63 +10,63 @@
         },
         "title": {
             "description": "A name given to the resource.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         },
         "creator": {
             "description": "An entity primarily responsible for making the resource.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         },
         "subject": {
             "description": "The topic of the resource.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         },
         "description": {
             "description": "An account of the resource.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         },
         "publisher": {
             "description": "An entity responsible for making the resource available.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         },
         "contributor": {
             "description": "An entity responsible for making contributions to the resource.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         },
         "date": {
             "description": "A point or period of time associated with an event in the lifecycle of the resource.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         },
         "type": {
             "description": "The nature or genre of the resource.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         },
         "format": {
             "description": "The file format, physical medium, or dimensions of the resource.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         },
         "identifier": {
             "description": "An unambiguous reference to the resource within a given context.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         },
         "source": {
             "description": "A related resource from which the described resource is derived.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         },
         "language": {
             "description": "A language of the resource.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         },
         "relation": {
             "description": "A related resource.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         },
         "coverage": {
             "description": "The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         },
         "rights": {
             "description": "Information about rights held in and over the resource.",
-            "$ref": "#/definitions/content"
+            "$ref": "../lib/shared.json#/definitions/model.literal"
         }
     }
 }
