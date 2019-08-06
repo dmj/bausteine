@@ -1,6 +1,70 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
+        "model.internalEntity.content": {
+            "additionalProperties": false,
+            "required": ["@id", "label"],
+            "properties": {
+                "@id": {
+                    "type": "uri"
+                },
+                "label": {
+                    "$ref": "#/definitions/model.localizedString"
+                },
+                "homepage": {
+                    "type": "uri"
+                }
+            }
+        },
+        "model.internalEntity": {
+            "type": ["array", "object"],
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/model.internalEntity.content"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.internalEntity.content"
+                    }
+                }
+            ]
+        },
+        "model.externalEntity.content": {
+            "additionalProperties": false,
+            "required": ["label"],
+            "properties": {
+                "sameAs": {
+                    "type": "uri"
+                },
+                "label": {
+                    "$ref": "#/definitions/model.localizedString"
+                },
+                "homepage": {
+                    "type": "uri"
+                }
+            }
+        },
+        "model.externalEntity": {
+            "type": ["array", "object"],
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/model.externalEntity.content"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.externalEntity.content"
+                    }
+                }
+            ]
+        },
+        "model.Entity": {
+            "oneOf": [
+                { "$ref": "#/definitions/model.internalEntity" },
+                { "$ref": "#/definitions/model.externalEntity" }
+            ]
+        },
         "model.localizedString": {
             "type": "object",
             "required": [
