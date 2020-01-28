@@ -1,10 +1,11 @@
-# Wiederverwendbare Eigenschaften (Dublin Core Qualified)
+# Wiederverwendbare Eigenschaften (Dublin Core & Dublin Core Qualified)
 #
-# Autor: David Maus <maus@hab.de>
-# Timestamp: <2019-01-18 15:36:41 maus>
+# Autor: David Maus <david.maus@sub.uni-hamburg.de>
+# Timestamp: <2020-01-28 07:59:48 dmaus>
 #
 
 namespace dct = "http://purl.org/dc/terms/"
+namespace dc = "http://purl.org/dc/elements/1.1/"
 
 include "shared.rnc"
 
@@ -73,6 +74,11 @@ property.contributor =
       entity.Agent
    }
 
+property.contributor.simple =
+    element dc:contributor {
+        model.rdfLiteral
+    }
+
 property.coverage =
    element dct:coverage {
       entity.LocationPeriodOrJurisdiction
@@ -88,10 +94,20 @@ property.creator =
       entity.Agent
    }
 
+property.creator.simple =
+    element dc:creator {
+        model.rdfLiteral
+    }
+
 property.date =
    element dct:date {
       model.rdfLiteral
    }
+
+property.date.simple =
+    element dc:date {
+        model.rdfLiteral
+    }
 
 property.dateAccepted =
    element dct:dateAccepted {
@@ -113,6 +129,12 @@ property.description =
       model.rdfLiteral
    }
 
+property.description.simple =
+    element dc:description {
+        model.rdfLiteral
+    }
+
+
 property.educationLevel =
    element dct:educationLevel {
       entity.AgentClass
@@ -127,6 +149,11 @@ property.format =
    element dct:format {
       entity.MediaTypeOrExtent
    }
+
+property.format.simple =
+    element dc:format {
+        model.rdfLiteral
+    }
 
 property.hasFormat =
    element dct:hasFormat {
@@ -147,6 +174,11 @@ property.identifier =
    element dct:identifier {
       model.rdfLiteral
    }
+
+property.identifier.simple =
+    element dc:identifier {
+        model.rdfLiteral
+    }
 
 property.instructionalMethod =
    element dct:instructionalMethod {
@@ -198,6 +230,11 @@ property.language =
       }
    }
 
+property.language.simple =
+    element dc:language {
+        model.rdfLiteral
+    }
+
 property.license =
    element dct:license {
       element dct:LicenseDocument {
@@ -229,6 +266,11 @@ property.publisher =
       entity.Agent
    }
 
+property.publisher.simple =
+    element dc:publisher {
+        model.rdfLiteral
+    }
+
 property.references =
    element dct:references {
       entity.Resource
@@ -238,6 +280,11 @@ property.relation =
    element dct:relation {
       entity.Resource
    }
+
+property.relation.simple =
+    element dc:relation {
+        model.rdfLiteral
+    }
 
 property.replaces =
    element dct:replaces {
@@ -254,6 +301,11 @@ property.rights =
       entity.RightsStatement
    }
 
+property.rights.simple =
+    element dc:rights {
+        model.rdfLiteral
+    }
+
 property.rightsHolder =
    element dct:rightsHolder {
       entity.Agent
@@ -263,6 +315,11 @@ property.source =
    element dct:source {
       entity.Resource
    }
+
+property.source.simple =
+    element dc:source {
+        model.rdfLiteral
+    }
 
 property.spatial =
    element dct:spatial {
@@ -275,6 +332,11 @@ property.subject =
    element dct:subject {
       entity.Concept
    }
+
+property.subject.simple =
+    element dc:subject {
+        model.rdfLiteral
+    }
 
 property.tableOfContents =
    element dct:tableOfContents {
@@ -291,10 +353,20 @@ property.title =
       model.rdfLiteral
    }
 
+property.title.simple =
+    element dc:title {
+        model.rdfLiteral
+    }
+
 property.type =
    element dct:type {
       entity.Concept
    }
+
+property.type.simple =
+    element dc:type {
+        model.rdfLiteral
+    }
 
 property.valid =
    element dct:valid {
