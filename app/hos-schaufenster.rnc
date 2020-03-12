@@ -1,0 +1,50 @@
+# Bibliographische Ressourcen / HOS Schaufenster
+#
+# Autor: David Maus <david.maus@sub.uni-hamburg.de>
+# Timestamp: <2020-03-12 08:46:10 dmaus>
+#
+
+namespace dct = "http://purl.org/dc/terms/"
+namespace rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+namespace geo = "http://www.w3.org/2003/01/geo/wgs84_pos#"
+
+include "../lib/shared-dc.rnc"
+
+start =
+    element dct:BibliographicResource {
+        requiredMetadata
+      & optionalMetadata
+    }
+
+requiredMetadata =
+    property.title.simple+
+  & property.identifier.simple+
+  & property.language.simple
+  & property.date.simple
+  & property.creator+
+  & property.rights.simple
+  & element dct:source {
+        element rdf:Description {
+            property.label
+          & property.publisher
+        }
+    }
+
+optionalMetadata =
+    property.contributor*
+  & property.publisher.simple?
+  & property.type.simple*
+  & property.description.simple*
+  & property.relation.simple*
+
+property.sf.source =
+    element dct:source {
+        element rdf:Description {
+            property.label
+        & element dct:publisher {
+              model.Entity
+            & element geo:lat { text }
+            & element geo:long { text }
+          }
+        }
+    }
