@@ -1,12 +1,13 @@
 # Bibliographische Ressourcen / HOS Schaufenster
 #
 # Autor: David Maus <david.maus@sub.uni-hamburg.de>
-# Timestamp: <2020-03-12 08:46:10 dmaus>
+# Timestamp: <2020-05-06 16:02:23 mausda>
 #
 
 namespace dct = "http://purl.org/dc/terms/"
 namespace rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 namespace geo = "http://www.w3.org/2003/01/geo/wgs84_pos#"
+namespace aggregator = "https://openscience.hamburg.de/vocab/aggregator#"
 
 include "../lib/shared-dc.rnc"
 
@@ -23,12 +24,7 @@ requiredMetadata =
   & property.date.simple
   & property.creator+
   & property.rights.simple
-  & element dct:source {
-        element rdf:Description {
-            property.label
-          & property.publisher
-        }
-    }
+  & property.sf.source
 
 optionalMetadata =
     property.contributor*
@@ -36,15 +32,24 @@ optionalMetadata =
   & property.type.simple*
   & property.description.simple*
   & property.relation.simple*
+  & dc.subject.simple*
 
 property.sf.source =
-    element dct:source {
-        element rdf:Description {
-            property.label
-        & element dct:publisher {
-              model.Entity
-            & element geo:lat { text }
-            & element geo:long { text }
-          }
+    element aggregator:isProvidedBy {
+        element aggregator:Record {
+            property.identifier.simple
+          & property.modified
+          & element dct:isPartOf {
+                element aggregator:Collection {
+                    property.label
+                    & element dct:publisher {
+                          element dct:Agent {
+                              property.identifier
+                            & element geo:lat { text }
+                            & element geo:long { text }
+                          }
+                      }
+                }
+            }
         }
     }
